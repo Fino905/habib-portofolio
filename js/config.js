@@ -12,7 +12,7 @@
    Ubah nama, tagline, deskripsi, dan info pribadimu di sini.
    ---------------------------------------------------------------- */
 const CONFIG_PROFILE = {
-  name:       "Habib Alfino Febrianto",   // Nama lengkap kamu
+  name:       "Huda",   // Nama lengkap kamu
   initials:   "FINO",                  // 2 huruf inisial (untuk logo & avatar)
   tagline:    "Fullstack Developer & UI Designer", // Kalimat singkat di bawah nama
   greeting:   "Halo, saya",          // Kata sapaan sebelum nama besar
