@@ -1,5 +1,8 @@
 <div align="center">
 
+  <!-- SPIDER-MAN ARTWORK DARI ASET WEBSITE ANDA -->
+  <img src="https://habib-portofolio-nine.vercel.app/img/hero5.png" width="240" alt="Spider-Man - Habib Alfino" style="filter: drop-shadow(0 0 15px rgba(226, 54, 54, 0.6));" />
+
   # 🕷️ HABIB ALFINO — Spider-Man Interactive Developer Portfolio
 
   **High-Performance, Data-Driven & Modular Web Portfolio Platform**  
@@ -50,4 +53,26 @@ Dibangun dengan arsitektur **Zero-Dependency Vanilla JavaScript (ES6+)**, websit
 * **Status Badges & Ikon Grafis**: Memberikan visualisasi yang jelas dan profesional terhadap teknologi yang dikuasai.
 
 ### 5. 🎨 Personalisasi Tampilan & Aksesibilitas
-* **Theme Mode Switcher (Dark / Light)**: Pilihan tampilan mode gelap dan mode terang yang preferensinya tersimpan otomatis di *Local
+* **Theme Mode Switcher (Dark / Light)**: Pilihan tampilan mode gelap dan mode terang yang preferensinya tersimpan otomatis di *Local Storage* peramban pengunjung.
+* **Audio Feedback Controller**: Dilengkapi tombol kontrol efek suara (*Mute / Unmute*) untuk interaktivitas klik elemen UI.
+* **Preloader Persentase Dinamis**: Layar pemuatan awal (*0% - 100%*) dengan Spider Emblem SVG untuk memastikan semua aset dan skrip kanvas siap sebelum antarmuka dibuka.
+
+### 6. 🌌 Engine Visual & Animasi Kanvas
+* **Interactive Canvas Particles**: Partikel interaktif di latar belakang hero section yang diproses ringan menggunakan HTML5 Canvas API.
+* **Typewriter Effect Engine**: Animasi teks mengetik otomatis yang menampilkan pergantian spesialisasi dan peran secara dinamis.
+
+---
+
+## 🏗️ Arsitektur Data Terpusat (`config.js`)
+
+Seluruh data konten pada website ini dikelola secara terpusat melalui satu file `java/config.js` sehingga pengelolaan data proyek, kontak, maupun teks translasi tidak memerlukan perubahan struktur kode HTML:
+
+```plaintext
+java/config.js
+ ├── defaults          -> Konfigurasi awal tema (dark/light) dan bahasa (id/en)
+ ├── personal          -> Profil, bio, kontak, avatar, dan akun sosial media Habib Alfino
+ ├── emailjs           -> Public Key, Service ID, dan Template ID untuk form kontak
+ ├── skillsCategories  -> Daftar dan ikon teknologi yang dikuasai
+ ├── projects          -> Daftar data proyek (judul, deskripsi, gambar, URL)
+ └── translations      -> Kamus kosakata antarmuka (Bahasa Indonesia & English)
+
