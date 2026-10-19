@@ -1,114 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" width="100%" height="240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="420">
   <defs>
     <style>
-      @keyframes crawlAndEat {
-        0% { transform: translateX(1050px); }
-        15% { transform: translateX(850px); }
-        35% { transform: translateX(710px); }
-        55% { transform: translateX(550px); }
-        75% { transform: translateX(380px); }
-        92% { transform: translateX(180px); }
-        100% { transform: translateX(-220px); }
+      /* Laba-laba raksasa berjalan melintasi layar dari kanan ke kiri */
+      @keyframes crawlLinear {
+        0% { transform: translate(1350px, 210px); }
+        100% { transform: translate(-450px, 210px); }
       }
-      @keyframes legCrawl {
-        0%, 100% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(2deg) scale(1.02); }
+
+      /* Kaki laba-laba bergerak dinamis */
+      @keyframes spiderLegPulse {
+        0%, 100% { transform: scale(1) rotate(0deg); }
+        50% { transform: scale(1.02, 0.98) rotate(2deg); }
       }
-      @keyframes eatLetterB2 {
-        0%, 18% { opacity: 1; transform: scale(1); }
-        22%, 100% { opacity: 0; transform: scale(0.2) translateX(-20px); }
+
+      /* TIMING PRESISI: Huruf HANYA HILANG tepat saat kepala/mulut laba-laba lewat di atasnya */
+      @keyframes eatB2 {
+        0%, 31% { opacity: 1; transform: scale(1); }
+        32% { opacity: 0.6; transform: scale(1.1) skewX(-15deg); }
+        33%, 100% { opacity: 0; transform: scale(0); }
       }
-      @keyframes eatLetterI {
+
+      @keyframes eatI {
         0%, 38% { opacity: 1; transform: scale(1); }
-        42%, 100% { opacity: 0; transform: scale(0.2) translateX(-20px); }
+        38.5% { opacity: 0.6; transform: scale(1.1) skewX(-15deg); }
+        39.5%, 100% { opacity: 0; transform: scale(0); }
       }
-      @keyframes eatLetterB1 {
-        0%, 58% { opacity: 1; transform: scale(1); }
-        62%, 100% { opacity: 0; transform: scale(0.2) translateX(-20px); }
+
+      @keyframes eatB1 {
+        0%, 45.5% { opacity: 1; transform: scale(1); }
+        46.5% { opacity: 0.6; transform: scale(1.1) skewX(-15deg); }
+        47.5%, 100% { opacity: 0; transform: scale(0); }
       }
-      @keyframes eatLetterA {
-        0%, 78% { opacity: 1; transform: scale(1); }
-        82%, 100% { opacity: 0; transform: scale(0.2) translateX(-20px); }
+
+      @keyframes eatA {
+        0%, 54.5% { opacity: 1; transform: scale(1); }
+        55.5% { opacity: 0.6; transform: scale(1.1) skewX(-15deg); }
+        56.5%, 100% { opacity: 0; transform: scale(0); }
       }
-      @keyframes eatLetterH {
-        0%, 92% { opacity: 1; transform: scale(1); }
-        95%, 100% { opacity: 0; transform: scale(0.2) translateX(-20px); }
+
+      @keyframes eatH {
+        0%, 63.5% { opacity: 1; transform: scale(1); }
+        64.5% { opacity: 0.6; transform: scale(1.1) skewX(-15deg); }
+        65.5%, 100% { opacity: 0; transform: scale(0); }
       }
 
       .letter {
         font-family: 'Arial Black', Impact, sans-serif;
-        font-size: 135px;
+        font-size: 130px;
         font-weight: 900;
         fill: #FFFFFF;
-        transform-origin: center;
+        text-anchor: middle;
+        dominant-baseline: central;
       }
       .letter-glow {
-        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
       }
-      .letter-h { animation: eatLetterH 8s infinite ease-out; }
-      .letter-a { animation: eatLetterA 8s infinite ease-out; }
-      .letter-b1 { animation: eatLetterB1 8s infinite ease-out; }
-      .letter-i { animation: eatLetterI 8s infinite ease-out; }
-      .letter-b2 { animation: eatLetterB2 8s infinite linear; }
+
+      .letter-h  { animation: eatH 8s infinite linear; }
+      .letter-a  { animation: eatA 8s infinite linear; }
+      .letter-b1 { animation: eatB1 8s infinite linear; }
+      .letter-i  { animation: eatI 8s infinite linear; }
+      .letter-b2 { animation: eatB2 8s infinite linear; }
 
       .spider-mover {
-        animation: crawlAndEat 8s infinite linear;
+        animation: crawlLinear 8s infinite linear;
       }
-      .spider-anim {
-        animation: legCrawl 0.25s infinite ease-in-out;
-        transform-origin: center;
+      .spider-pulse {
+        animation: spiderLegPulse 0.24s infinite ease-in-out;
+        transform-origin: 0 0;
       }
     </style>
 
-    <!-- SILUET SPIDER-MAN SESUAI GAMBAR ANDA (MENGHADAP HORIZONTAL KE KIRI) -->
-    <g id="raimi-spider-horizontal">
-      <g transform="rotate(-90) translate(-80, -80) scale(0.78)">
-        <!-- BADAN TENGAH & KEPALA -->
-        <path d="M100,55 C96,65 92,72 90,82 C88,90 92,105 94,115 C96,125 98,140 100,158 C102,140 104,125 106,115 C108,105 112,90 110,82 C108,72 104,65 100,55 Z" fill="#E23636" filter="drop-shadow(0 0 6px #E23636)" />
-        <polygon points="100,46 95,54 105,54" fill="#E23636" />
-        <polygon points="98,43 95,48 97,48" fill="#E23636" />
-        <polygon points="102,43 105,48 103,48" fill="#E23636" />
+    <!-- SILUET SPIDER-MAN RAIMI SUPER RAKSASA (SKALA 2.85x) -->
+    <g id="colossal-raimi-spider">
+      <g class="spider-pulse" transform="scale(2.85)">
+        <g transform="rotate(-90) translate(-100, -48)">
+          <!-- Badan & Perut -->
+          <path d="M100,55 C96,65 92,72 90,82 C88,90 92,105 94,115 C96,125 98,140 100,158 C102,140 104,125 106,115 C108,105 112,90 110,82 C108,72 104,65 100,55 Z" fill="#E23636" filter="drop-shadow(0 0 16px rgba(226, 54, 54, 0.95))" />
+          
+          <!-- Taring / Mulut di Titik Depan -->
+          <polygon points="100,44 95,54 105,54" fill="#E23636" />
+          <polygon points="98,40 94,47 97,47" fill="#FFFFFF" />
+          <polygon points="102,40 106,47 103,47" fill="#FFFFFF" />
 
-        <!-- KAKI DEPAN ATAS KIRI -->
-        <path d="M96,68 L68,48 L76,16 C76,16 68,36 71,52 L94,74 Z" fill="#E23636" />
-        <path d="M93,75 L56,58 L46,24 C46,24 43,48 55,68 L90,82 Z" fill="#E23636" />
+          <!-- Kaki Atas Depan -->
+          <path d="M96,68 L68,48 L76,16 C76,16 68,36 71,52 L94,74 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
+          <path d="M93,75 L56,58 L46,24 C46,24 43,48 55,68 L90,82 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
 
-        <!-- KAKI BELAKANG BAWAH KIRI (PANJANG MERUNCING) -->
-        <path d="M92,86 L48,82 L34,138 C34,138 46,104 59,96 L92,93 Z" fill="#E23636" />
-        <path d="M94,97 L72,112 L70,188 C70,188 78,142 85,122 L96,106 Z" fill="#E23636" />
+          <!-- Kaki Bawah Belakang -->
+          <path d="M92,86 L48,82 L34,138 C34,138 46,104 59,96 L92,93 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
+          <path d="M94,97 L72,112 L70,188 C70,188 78,142 85,122 L96,106 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
 
-        <!-- KAKI DEPAN ATAS KANAN -->
-        <path d="M104,68 L132,48 L124,16 C124,16 132,36 129,52 L106,74 Z" fill="#E23636" />
-        <path d="M107,75 L144,58 L154,24 C154,24 157,48 145,68 L110,82 Z" fill="#E23636" />
-
-        <!-- KAKI BELAKANG BAWAH KANAN (PANJANG MERUNCING) -->
-        <path d="M108,86 L152,82 L166,138 C166,138 154,104 141,96 L108,93 Z" fill="#E23636" />
-        <path d="M106,97 L128,112 L130,188 C130,188 122,142 115,122 L104,106 Z" fill="#E23636" />
+          <!-- Kaki Kanan Simetris -->
+          <path d="M104,68 L132,48 L124,16 C124,16 132,36 129,52 L106,74 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
+          <path d="M107,75 L144,58 L154,24 C154,24 157,48 145,68 L110,82 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
+          <path d="M108,86 L152,82 L166,138 C166,138 154,104 141,96 L108,93 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
+          <path d="M106,97 L128,112 L130,188 C130,188 122,142 115,122 L104,106 Z" fill="#E23636" filter="drop-shadow(0 0 8px rgba(226, 54, 54, 0.8))" />
+        </g>
       </g>
     </g>
   </defs>
 
   <!-- BACKGROUND GELAP GITHUB -->
-  <rect width="100%" height="100%" fill="#0d1117" rx="14" />
+  <rect width="100%" height="100%" fill="#0d1117" rx="18" />
   
-  <!-- JARING LABA-LABA HALUS DI SUDUT KIRI -->
-  <path d="M0,0 L200,0 M0,0 L0,200 M0,0 L140,140 M0,70 Q70,70 70,0 M0,140 Q140,140 140,0" stroke="#21262d" stroke-width="2" fill="none" opacity="0.6" />
+  <!-- JARING LABA-LABA SUDUT -->
+  <path d="M0,0 L260,0 M0,0 L0,260 M0,0 L200,200 M0,90 Q90,90 90,0 M0,180 Q180,180 180,0" stroke="#21262d" stroke-width="2.5" fill="none" opacity="0.65" />
 
-  <!-- HURUF TEKS GEDE: H A B I B -->
+  <!-- TEKS BALOK: H A B I B -->
   <g class="letter-glow">
-    <text x="120" y="165" class="letter letter-h">H</text>
-    <text x="270" y="165" class="letter letter-a">A</text>
-    <text x="420" y="165" class="letter letter-b1">B</text>
-    <text x="570" y="165" class="letter letter-i">I</text>
-    <text x="670" y="165" class="letter letter-b2">B</text>
+    <text x="200" y="210" class="letter letter-h">H</text>
+    <text x="360" y="210" class="letter letter-a">A</text>
+    <text x="520" y="210" class="letter letter-b1">B</text>
+    <text x="660" y="210" class="letter letter-i">I</text>
+    <text x="780" y="210" class="letter letter-b2">B</text>
   </g>
 
-  <!-- LABA-LABA MERAYAP HORIZONTAL KE KIRI & MEMAKAN HURUF -->
+  <!-- LABA-LABA RAKSASA MELINTAS -->
   <g class="spider-mover">
-    <g transform="translate(0, 115)">
-      <g class="spider-anim">
-        <use href="#raimi-spider-horizontal" />
-      </g>
-    </g>
+    <use href="#colossal-raimi-spider" />
   </g>
 </svg>
